@@ -8,6 +8,14 @@ app.use(cors());
 
 app.use(express.json());
 
+// Import Routers
+const doctorsRouter = require("./routes/doctor");
+
+
+// Routes Middleware
+app.use("/doctors", doctorsRouter);
+
+
 const PORT = 5000;
 
 app.listen(PORT, () => {
