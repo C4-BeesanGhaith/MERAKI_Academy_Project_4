@@ -10,10 +10,12 @@ app.use(express.json());
 
 // Import Routers
 const doctorsRouter = require("./routes/doctor");
+const patientsRouter = require("./routes/patient")
 
 
 // Routes Middleware
 app.use("/doctors", doctorsRouter);
+app.use("/patients", patientsRouter);
 
 
 const PORT = 5000;
