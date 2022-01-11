@@ -6,10 +6,8 @@ const patientsSchema = new mongoose.Schema({
   age: { type: Number },
   country: { type: String },
   phone: { type: String },
-  dateOfVisit: { type: Date },
-  diagnosis: { type: String },
-  Management: { type: String },
-  doctorSign: { type: mongoose.Schema.Types.ObjectId, ref: "Doctor" },
-});
+  doctor: { type: mongoose.Schema.Types.ObjectId, ref: "Doctor" },
+  diagnosis: {type: mongoose.Schema.Types.ObjectId, ref: "Diagnosis"}
+  });
 
 module.exports = mongoose.model("Patients", patientsSchema);
