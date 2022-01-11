@@ -29,13 +29,33 @@ const createNewPatient = (req, res) => {
 };
 
 const getAllPatients = (req, res) => {
-    const doctorId = req.token.doctorId;
-    patientsModel.find({}).then((result) => {
-        if (result.length) {
-            res.status(200).json({})
-        }
+  const doctorId = req.token.doctorId;
+  patientsModel
+    .find({})
+    .then((result) => {
+      if (result.length) {
+        res.status(200).json({
+          success: true,
+          message: "All the patients",
+          doctorId: doctorId,
+          patient: result,
+        });
+      } else {
+        res.status(200).json({
+          success: false,
+          message: "No Patients Yet",
+        });
+      }
     })
-}
+    .catch((err) => {
+      res.status(500).json({
+        success: false,
+        message: "Server Error",
+      });
+    });
+};
+
+
 
 module.exports = {
   createNewPatient,
