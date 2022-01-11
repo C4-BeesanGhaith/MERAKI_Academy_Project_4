@@ -74,10 +74,34 @@ const deletePatientById = (req, res) => {
             message: `Server Error`,
         });
     })
-}
+};
+
+const updatePatientById = (req, res) => {
+    const id = req.params.id;
+
+    patientsModel.findByIdAndUpdate(id, req.body, {new: true}).then((result) => {
+        if (!result) {
+            return res.status(404).json({
+                success: false,
+                message: `The Patient: ${id} is not found`,
+            });
+        }
+        res.status(202).json({
+            success: true,
+            message: `Patient Update`,
+            patient: result,
+        })
+    }).catch((err) => {
+        res.status(500).json({
+            success: false,
+            message: `Server Error`,
+        });
+    });
+};
 
 module.exports = {
   createNewPatient,
   getAllPatients,
   deletePatientById,
+  updatePatientById,
 };
