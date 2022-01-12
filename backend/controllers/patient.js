@@ -32,13 +32,16 @@ const getAllPatients = (req, res) => {
   const doctorId = req.token.doctorId;
   patientsModel
     .find({})
+    .populate("diagnosiss")
     .then((result) => {
+      console.log(result)
       if (result.length) {
         res.status(200).json({
           success: true,
           message: "All the patients",
           doctorId: doctorId,
           patient: result,
+          diagnosiss: result.diagnosiss,
         });
       } else {
         res.status(200).json({
