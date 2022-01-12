@@ -14,16 +14,24 @@ const createNewDiagnosis = (req, res) => {
 
     newDiagnosis.save().then((result) => {
         patientsModel.updateOne({_id: patientId}, {$push: {diagnosiss: result._id}}).then(() => {
-            
-            console.log(result);
             res.status(201).json({
                 success: true,
                 message: `The new diagnosis added`,
                 diagnosis: result
-            })
-        })
-    })
-}
+            });
+        }).catch((err) => {
+            res.status(500).json({
+                success: false,
+                message: `Server Error`,
+            });
+        });
+    }).catch((err) => {
+        res.status(500).json({
+            success: false,
+            message: `Server Error`,
+        });
+    });
+};
 
 module.exports = {
     createNewDiagnosis,
