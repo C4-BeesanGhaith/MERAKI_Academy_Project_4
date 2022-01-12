@@ -4,6 +4,7 @@ const {
   getAllPatients,
   deletePatientById,
   updatePatientById,
+  getPatientByName,
 } = require("../controllers/patient");
 
 const {
@@ -20,6 +21,7 @@ const patientsRouter = express.Router();
 
 patientsRouter.post("/", authentication, createNewPatient);
 patientsRouter.get("/", authentication, getAllPatients);
+patientsRouter.get("/search", getPatientByName);
 patientsRouter.delete("/:id", deletePatientById);
 patientsRouter.put("/:id", updatePatientById);
 
