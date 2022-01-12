@@ -5,14 +5,23 @@ const createNewDiagnosis = (req, res) => {
     const patientId = req.params.id;
     const {dateOfVisit, diagnosis, management} = req.body;
 
-    const diagnosis = new diagnosisModel({
+    const newDiagnosis = new diagnosisModel({
         dateOfVisit,
         diagnosis,
         management,
+        doctor: req.token.doctorId,
     });
 
-    diagnosis.save().then((result) => {
-        
+    newDiagnosis.save().then((result) => {
+        patientsModel.updateOne({_id: patientId}, {$push: {diagnosiss: result._id}}).then(() => {
+            
+            console.log(result);
+            res.status(201).json({
+                success: true,
+                message: `The new diagnosis added`,
+                diagnosis: result
+            })
+        })
     })
 }
 
