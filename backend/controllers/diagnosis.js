@@ -71,25 +71,26 @@ const getAllDiagnosis = (req, res) => {
 
 const deleteDiagnosis = (req, res) => {
   const id = req.params.id;
-  diagnosisModel.findByIdAndDelete(id).then((result) => {
-    console.log(result);
-    patientsModel.updateOne();
-    //     if(!result) {
-    //         return res.status(404).json({
-    //             success: false,
-    //             message: `The Diagnosis: ${id} is not found`,
-    //         });
-    //     }
-    //     res.status(200).json({
-    //         success: true,
-    //         message: `Succeeded to delete Diagnosis with id: ${id}`,
-    //     });
-    // }).catch((err) => {
-    //     res.status(500).json({
-    //         success: false,
-    //         message: `Server Error`,
-    //     });
-  });
+  diagnosisModel
+    .findByIdAndDelete(id)
+    .then((result) => {
+      if (!result) {
+        return res.status(404).json({
+          success: false,
+          message: `The Diagnosis: ${id} is not found`,
+        });
+      }
+      res.status(200).json({
+        success: true,
+        message: `Succeeded to delete Diagnosis with id: ${id}`,
+      });
+    })
+    .catch((err) => {
+      res.status(500).json({
+        success: false,
+        message: `Server Error`,
+      });
+    });
 };
 
 module.exports = {
