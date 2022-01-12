@@ -34,7 +34,7 @@ const getAllPatients = (req, res) => {
     .find({})
     .populate("diagnosiss")
     .then((result) => {
-      console.log(result)
+      console.log(result);
       if (result.length) {
         res.status(200).json({
           success: true,
@@ -58,53 +58,88 @@ const getAllPatients = (req, res) => {
     });
 };
 
-const deletePatientById = (req, res) => {
-    const id = req.params.id;
-    patientsModel.findByIdAndDelete(id).then((result) => {
-        if (!result) {
-            return res.status(404).json({
-                success: false,
-                message: `The Patient: ${id} is not found`,
-            });
-        }
-        res.status(200).json({
-            success: true,
-            message: `Succeeded to delete patient with id: ${id}`,
-        })
-    }).catch((err) => {
-        res.status(500).json({
-            success: false,
-            message: `Server Error`,
+const getPatientByName = (req, res) => {
+  const name = req.query.firstName;
+
+  patientsModel
+    .find({ firstName: name })
+    .populate("diagnosiss")
+    .then((result) => {
+      if (!result.length) {
+        return res.status(404).json({
+          success: false,
+          message: `The Patient: ${name} is not found`,
         });
+      }
+      res.status(200).json({
+        success: true,
+        message: `All the patient for the first name: ${name}`,
+        patient: result,
+        diagnosiss: result.diagnosiss,
+      });
     })
+    .catch((err) => {
+      res.status(500).json({
+        success: false,
+        message: `Server Error`,
+      });
+    });
+};
+
+const deletePatientById = (req, res) => {
+  const id = req.params.id;
+  patientsModel
+    .findByIdAndDelete(id)
+    .then((result) => {
+      if (!result) {
+        return res.status(404).json({
+          success: false,
+          message: `The Patient: ${id} is not found`,
+        });
+      }
+      res.status(200).json({
+        success: true,
+        message: `Succeeded to delete patient with id: ${id}`,
+      });
+    })
+    .catch((err) => {
+      res.status(500).json({
+        success: false,
+        message: `Server Error`,
+      });
+    });
 };
 
 const updatePatientById = (req, res) => {
-    const id = req.params.id;
+  const id = req.params.id;
 
-    patientsModel.findByIdAndUpdate(id, req.body, {new: true}).then((result) => {
-        if (!result) {
-            return res.status(404).json({
-                success: false,
-                message: `The Patient: ${id} is not found`,
-            });
-        }
-        res.status(202).json({
-            success: true,
-            message: `Patient Update`,
-            patient: result,
-        })
-    }).catch((err) => {
-        res.status(500).json({
-            success: false,
-            message: `Server Error`,
+  patientsModel
+    .findByIdAndUpdate(id, req.body, { new: true })
+    .then((result) => {
+      if (!result) {
+        return res.status(404).json({
+          success: false,
+          message: `The Patient: ${id} is not found`,
         });
+      }
+      res.status(202).json({
+        success: true,
+        message: `Patient Update`,
+        patient: result,
+      });
+    })
+    .catch((err) => {
+      res.status(500).json({
+        success: false,
+        message: `Server Error`,
+      });
     });
 };
 
 module.exports = {
   createNewPatient,
   getAllPatients,
+  getPatientByName,
   deletePatientById,
   updatePatientById,
 };
