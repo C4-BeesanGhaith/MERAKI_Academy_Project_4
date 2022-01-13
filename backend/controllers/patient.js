@@ -1,11 +1,12 @@
 const patientsModel = require("../database/models/patientsSchema");
 
 const createNewPatient = (req, res) => {
-  const { firstName, lastName, age, country, phone } = req.body;
+  const { firstName, lastName, age, gender, country, phone } = req.body;
   const patient = new patientsModel({
     firstName,
     lastName,
     age,
+    gender,
     country,
     phone,
     doctor: req.token.doctorId,
