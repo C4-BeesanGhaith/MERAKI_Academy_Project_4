@@ -1,9 +1,15 @@
 import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import Register from "./Components/Register";
+import Navigation from "./Components/Navigation";
 
 function App() {
   return (
     <div className="App">
-      <h1>Welcome To App</h1>
+      <Navigation />
+      <Routes>
+        <Route path="/register" element={<Register />} />
+      </Routes>
     </div>
   );
 }
