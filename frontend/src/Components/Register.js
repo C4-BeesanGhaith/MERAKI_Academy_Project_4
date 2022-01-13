@@ -24,7 +24,6 @@ const Register = () => {
       })
       .then((response) => {
         setMessage(response.data.message);
-        console.log(response.data)
       })
       .catch((err) => {
         setMessage(err.response.data.message);
@@ -93,7 +92,7 @@ const Register = () => {
         />
         <br />
         <button onClick={createNewDoctor}>Register</button>
-        <p>{message}</p>
+        {message && <p>{message}</p>}
       </div>
     </>
   );
