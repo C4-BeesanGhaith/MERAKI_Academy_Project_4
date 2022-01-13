@@ -2,6 +2,8 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Register from "./Components/Register";
 import Navigation from "./Components/Navigation";
+import Login from "./Components/Login";
+
 
 function App() {
   return (
@@ -9,6 +11,7 @@ function App() {
       <Navigation />
       <Routes>
         <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login/>}/>
       </Routes>
     </div>
   );
