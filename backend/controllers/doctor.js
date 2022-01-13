@@ -17,7 +17,17 @@ const createNewDoctor = (req, res) => {
     doctor.save().then((result) => {
         res.status(201).json({success: true, message: "Success Doctor Added", doctor: result});
     }).catch((err) => {
-        
+        if(err.keyPattern) {
+            return res.status(409).json({
+                success: false,
+                message: `The email already exists`,
+              });
+        }
+        res.status(500).json({
+            success: false,
+            message: `Server Error`,
+            err: err,
+          });
     });
 };
 
