@@ -4,6 +4,7 @@ const patientsSchema = new mongoose.Schema({
   firstName: { type: String },
   lastName: { type: String },
   age: { type: Number },
+  gender: {type: String},
   country: { type: String },
   phone: { type: String },
   doctor: { type: mongoose.Schema.Types.ObjectId, ref: "Doctor" },
