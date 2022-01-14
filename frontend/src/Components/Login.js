@@ -1,15 +1,19 @@
 import axios from "axios";
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../Context/DoctorContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  // data I need to pass it from Context folder / doctorContext using (useContext) method
+  // data I need to pass it from Context folder / DoctorContext using (useContext) method
   const { setIsLoggedIn, saveToken, isLoggedIn } = useContext(AuthContext);
+
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
 
+  // function Login
   const login = async () => {
     try {
       const res = await axios.post("http://localhost:5000/login/", {
@@ -18,7 +22,7 @@ const Login = () => {
       });
       if (res.data.success) {
         saveToken(res.data.token);
-        console.log(res.data.token)
+        console.log(res.data.token);
         setIsLoggedIn(true);
         setMessage("");
       } else throw Error;
@@ -29,6 +33,16 @@ const Login = () => {
       setMessage("Error happened while Login, Please try again");
     }
   };
+
+  //==============================================================================
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate("/about");
+    }
+  });
+
+  //================================================================================
 
   return (
     <>
