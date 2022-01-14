@@ -10,11 +10,11 @@ const Navigation = () => {
       <div>
         {isLoggedIn ? (
           <>
-          <div>
-            <Link to="/about">About Us</Link>
-            <Link to="/patients">Patient List</Link>
-            <Link to="/new">New</Link>
-            <Link to="/open">Open</Link>
+            <div className="navigation">
+              <Link to="/about">About Us</Link>
+              <Link to="/patients">Patient List</Link>
+              <Link to="/new">New</Link>
+              <Link to="/open">Open</Link>
             </div>
           </>
         ) : (
