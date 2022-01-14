@@ -1,14 +1,16 @@
 const patientsModel = require("../database/models/patientsSchema");
 
 const createNewPatient = (req, res) => {
-  const { firstName, lastName, age, gender, country, phone } = req.body;
+  const { fullName, dateOfBirth, age, gender, address, phone, medicalHistory, allergy } = req.body;
   const patient = new patientsModel({
-    firstName,
-    lastName,
+    fullName,
+    dateOfBirth,
     age,
     gender,
-    country,
+    address,
     phone,
+    medicalHistory,
+    allergy,
     doctor: req.token.doctorId,
   });
 
@@ -35,7 +37,6 @@ const getAllPatients = (req, res) => {
     .find({})
     .populate("diagnosiss")
     .then((result) => {
-      console.log(result);
       if (result.length) {
         res.status(200).json({
           success: true,
