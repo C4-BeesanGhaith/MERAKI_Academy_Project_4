@@ -17,10 +17,8 @@ const PatientList = () => {
         },
       })
       .then((response) => {
-        console.log(response);
         setMessage("");
         setAllPatients(response.data.patient);
-        console.log(allPatients);
       })
       .catch((err) => {
         console.log(err);
@@ -28,36 +26,70 @@ const PatientList = () => {
       });
   };
 
+  // ===============================================================================
   useEffect(() => {
     getAllPatients();
   }, []);
 
+  //==========================================================================
+
   return (
     <>
-      <div>
-        <table>
-          <thead>
-            <tr>
-              <th>Full Name</th>
-              <th>Date Of Birth</th>
-              <th>Gender</th>
-              <th>Address</th>
-              <th>Phone Number</th>
-              <th>Medical History</th>
-              <th>Allergy</th>
-            </tr>
-          </thead>
-          <tbody>
-            {allPatients.map((element, index) => {
-              return (
-                <tr>
-                  <td>{element.fullName}</td>
-                  <td>{element.dateOfBirth}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+      <div className="mainDiv">
+        <div>
+          <h1>Patient List</h1>
+        </div>
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>Full Name</th>
+                <th>Birth Date</th>
+                <th>Gender</th>
+                <th>Address</th>
+                <th>Phone Number</th>
+                <th>Medical History</th>
+                <th>Allergy</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {allPatients.map((element, index) => {
+                return (
+                  <tr>
+                    <td>{element.fullName}</td>
+                    <td>{element.dateOfBirth}</td>
+                    <td>{element.gender}</td>
+                    <td>{element.address}</td>
+                    <td>{element.phone}</td>
+                    <td>{element.medicalHistory}</td>
+                    <td>{element.allergy}</td>
+                    <td>
+                      <button>Edit</button>
+                      <button
+                        onClick={() => {
+                          axios
+                            .delete(
+                              `http://localhost:5000/patients/${element._id}`
+                            )
+                            .then((response) => {
+                              console.log(response);
+                              getAllPatients();
+                            })
+                            .catch((err) => {
+                              console.log(err);
+                            });
+                        }}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       </div>
     </>
   );
