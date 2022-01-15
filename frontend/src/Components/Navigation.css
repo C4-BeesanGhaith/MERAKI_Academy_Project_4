@@ -1,3 +1,37 @@
-.navigation {
-    background-image: url();
+.links {
+    font-size: 1em;
+    display: flex;
+    flex-direction: row;
+    gap: 5ch;
+    margin-top: 3ch;
+    justify-content: center;
+    font-family: cursive;
+    margin-left: 10ch;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    /* gap: 5ch; */
+}
+
+#pic {
+    display: flex;
+    flex-direction: row;
+    font-size: 3em;
+    margin-top: 0.3ch;
+    margin-left: 0.1ch;
+}
+
+.paraTitle {
+    font-size: 1.5em;
+    font-family: cursive;
+    margin-left: 0.5ch;
+    color: rgb(32, 32, 209);
+}
+
+.paraTitle2 {
+    font-size: 1.5em;
+    font-family: cursive;
+    margin-left: 0.5ch;
 }
