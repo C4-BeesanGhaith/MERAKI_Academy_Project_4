@@ -1,3 +1,10 @@
+body {
+  background-image: url(medicine.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .App {
-  text-align: center;
+  /* text-align: center; */
+  width: 60%;
 }
