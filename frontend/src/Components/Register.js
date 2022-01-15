@@ -1,3 +1,4 @@
+import "./Register.css";
 import React, { useState } from "react";
 import axios from "axios";
 
@@ -32,10 +33,12 @@ const Register = () => {
 
   return (
     <>
-    <div>
-      <p>Register</p>
+      <div className="registerDiv">
+        <p className="paraReg">Register</p>
         <br />
+        <label className="lblRegister">First Name:</label>
         <input
+          className="inputRegister"
           type={"text"}
           placeholder="First Name ..."
           onChange={(e) => {
@@ -43,7 +46,9 @@ const Register = () => {
           }}
         />
         <br />
+        <label className="lblRegister">Last Name:</label>
         <input
+          className="inputRegister"
           type={"text"}
           placeholder="Last Name ..."
           onChange={(e) => {
@@ -51,7 +56,9 @@ const Register = () => {
           }}
         />
         <br />
+        <label className="lblRegister">Age:</label>
         <input
+          className="inputRegister"
           type={"number"}
           placeholder="Age ..."
           onChange={(e) => {
@@ -59,7 +66,9 @@ const Register = () => {
           }}
         />
         <br />
+        <label className="lblRegister">Post Title:</label>
         <input
+          className="inputRegister"
           type={"text"}
           placeholder="Post Title ..."
           onChange={(e) => {
@@ -67,7 +76,9 @@ const Register = () => {
           }}
         />
         <br />
+        <label className="lblRegister">Phone Number:</label>
         <input
+          className="inputRegister"
           type={"text"}
           placeholder="Phone Number ..."
           onChange={(e) => {
@@ -75,7 +86,9 @@ const Register = () => {
           }}
         />
         <br />
+        <label className="lblRegister">Email:</label>
         <input
+          className="inputRegister"
           type={"text"}
           placeholder="Email ..."
           onChange={(e) => {
@@ -83,16 +96,20 @@ const Register = () => {
           }}
         />
         <br />
+        <label className="lblRegister">Password:</label>
         <input
-          type={"text"}
+          className="inputRegister"
+          type={"password"}
           placeholder="Password ..."
           onChange={(e) => {
             setPassword(e.target.value);
           }}
         />
         <br />
-        <button onClick={createNewDoctor}>Register</button>
-        {message && <p>{message}</p>}
+        <button className="btnRegister" onClick={createNewDoctor}>
+          Register
+        </button>
+        {message && <p className="messageRegister">{message}</p>}
       </div>
     </>
   );
