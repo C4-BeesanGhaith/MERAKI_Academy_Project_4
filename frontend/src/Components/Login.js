@@ -1,3 +1,4 @@
+import "./Login.css";
 import axios from "axios";
 import React, { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../Context/DoctorContext";
@@ -46,10 +47,12 @@ const Login = () => {
 
   return (
     <>
-      <div>
-        <p>Login</p>
+      <div className="loginDiv">
+        <p className="paraLogin">Login</p>
         <br />
-        <input
+        <label className="lblLogin">Email:</label>
+        <br/>
+        <input className="inputLogin"
           type={"text"}
           placeholder="Email ..."
           onChange={(e) => {
@@ -57,16 +60,18 @@ const Login = () => {
           }}
         />
         <br />
-        <input
-          type={"text"}
+        <label className="lblLogin">Password:</label>
+        <br/>
+        <input className="inputLogin"
+          type={"password"}
           placeholder="Password ..."
           onChange={(e) => {
             setPassword(e.target.value);
           }}
         />
         <br />
-        <button onClick={login}>Login</button>
-        {message && <p>{message}</p>}
+        <button className="btnLogin" onClick={login}>Login</button>
+        {message && <p className="messageLogin">{message}</p>}
       </div>
     </>
   );
