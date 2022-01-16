@@ -1,3 +1,4 @@
+import "./PatientList.css";
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Context/DoctorContext";
@@ -7,6 +8,8 @@ const PatientList = () => {
 
   const [allPatients, setAllPatients] = useState([]);
   const [message, setMessage] = useState("");
+  const [isClicked, setIsClicked] = useState(false);
+  const [name, setName] = useState("");
 
   // function to get all patients from database
   const getAllPatients = () => {
@@ -29,27 +32,28 @@ const PatientList = () => {
   // ===============================================================================
   useEffect(() => {
     getAllPatients();
-  }, []);
+  });
 
   //==========================================================================
 
   return (
     <>
       <div className="mainDiv">
-        <div>
-          <h1>Patient List</h1>
+        <div className="header_PList">
+          <i class="fad fa-clipboard-list-check" id="list"></i>
+          <p className="paraList">Patient List</p>
         </div>
         <div>
-          <table>
+          <table className="table">
             <thead>
               <tr>
-                <th>Full Name</th>
+                <th className="thName">Full Name</th>
                 <th>Birth Date</th>
-                <th>Gender</th>
+                <th className="thGender">Gender</th>
                 <th>Address</th>
                 <th>Phone Number</th>
                 <th>Medical History</th>
-                <th>Allergy</th>
+                <th className="thAllergy">Allergy</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -57,16 +61,64 @@ const PatientList = () => {
               {allPatients.map((element, index) => {
                 return (
                   <tr>
-                    <td>{element.fullName}</td>
-                    <td>{element.dateOfBirth}</td>
-                    <td>{element.gender}</td>
-                    <td>{element.address}</td>
-                    <td>{element.phone}</td>
-                    <td>{element.medicalHistory}</td>
-                    <td>{element.allergy}</td>
-                    <td>
-                      <button>Edit</button>
+                    {isClicked ? (
+                      <>
+                        <td>
+                          <input value={element.fullName}/>
+                        </td>
+                        <td>
+                          <input type={"date"} value={element.dataOfBirth}/>
+                        </td>
+                        <td>
+                          <input value={element.gender}/>
+                        </td>
+                        <td>
+                          <input value={element.address}/>
+                        </td>
+                        <td>
+                          <input value={element.phone}/>
+                        </td>
+                        <td>
+                          <input value={element.medicalHistory}/>
+                        </td>
+                        <td>
+                          <input value={element.allergy}/>
+                        </td>
+                      </>
+                    ) : (
+                      <>
+                        <td>
+                          <button
+                            className="btnName"
+                            value={element.fullName}
+                            onClick={(e) => {
+                              setName(e.target.value);
+                            }}
+                          >
+                            {element.fullName}
+                          </button>
+                        </td>
+                        <td>{element.dateOfBirth}</td>
+                        <td className="tdGender">{element.gender}</td>
+                        <td>{element.address}</td>
+                        <td>{element.phone}</td>
+                        <td>{element.medicalHistory}</td>
+                        <td className="thAllergy">{element.allergy}</td>
+                      </>
+                    )}
+                    <td className="tdActions">
                       <button
+                        className="btnEdit"
+                      
+                        onClick={() => {
+                          setIsClicked(true);
+
+                        }}
+                      >
+                        Edit
+                      </button>
+                      <button
+                        className="btnDelete"
                         onClick={() => {
                           axios
                             .delete(
@@ -91,6 +143,7 @@ const PatientList = () => {
           </table>
         </div>
       </div>
+      <p>{message}</p>
     </>
   );
 };
