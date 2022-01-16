@@ -1,0 +1,21 @@
+.contenerDiv {
+    display: flex;
+    flex-direction: row;
+    gap: 2ch;
+}
+
+.profileDiv {
+    width: 30%;
+    height: 100%;
+    border: solid 0.5ch rgb(156, 209, 218);
+    background-color: white;
+    opacity: 0.8;
+}
+
+.diagnosisDiv {
+    width: 70%;
+    height: 100%;
+    border: solid 0.5ch rgb(156, 209, 218);
+    background-color: white;
+    opacity: 0.9;
+}
