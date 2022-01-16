@@ -26,6 +26,7 @@
 .paraTitle {
     font-size: 1.5em;
     font-family: cursive;
+    font-weight: bold;
     margin-left: 0.5ch;
     color: rgb(32, 32, 209);
 }
@@ -33,5 +34,6 @@
 .paraTitle2 {
     font-size: 1.5em;
     font-family: cursive;
+    font-weight: bold;
     margin-left: 0.5ch;
 }
