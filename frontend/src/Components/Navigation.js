@@ -19,7 +19,7 @@ const Navigation = () => {
               </Link>
               <Link to="/patients">Patient List</Link>
               <Link to="/new">New</Link>
-              <Link to="/open">Open</Link>
+              <Link to="/diagnosis">Diagnosis Page</Link>
             </div>
           </>
         ) : (
