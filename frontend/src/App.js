@@ -6,6 +6,7 @@ import Login from "./Components/Login";
 import AboutUs from "./Components/AboutUs";
 import PatientList from "./Components/PatientList";
 import NewPatient from "./Components/NewPatient";
+import Diagnosis from "./Components/Diagnosis";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/about" element={<AboutUs/>}/>
         <Route path="/patients" element={<PatientList/>}/>
         <Route path="/new" element={<NewPatient/>}/>
+        <Route path="/diagnosis" element={<Diagnosis/>}/>
       </Routes>
     </div>
   );
