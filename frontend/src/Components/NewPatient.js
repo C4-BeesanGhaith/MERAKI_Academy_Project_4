@@ -12,6 +12,7 @@ const NewPatient = () => {
   const [phone, setPhone] = useState("");
   const [medicalHistory, setMedicalHistory] = useState([]);
   const [allergy, setAllergy] = useState("");
+  const [message, setMessage] = useState("");
 
   return (
     <>
@@ -137,15 +138,16 @@ const NewPatient = () => {
                 },
               }
             ).then((response) => {
-                console.log(response)
+                setMessage(response.data.message);
             }).catch((err) => {
-                console.log(err)
+                setMessage(err.response.data.message);
             });
           }}
         >
           Submit
         </button>
       </div>
+      {message && <p>{message}</p>}
     </>
   );
 };
