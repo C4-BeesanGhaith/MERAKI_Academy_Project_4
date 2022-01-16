@@ -61,10 +61,10 @@ const getAllPatients = (req, res) => {
 };
 
 const getPatientByName = (req, res) => {
-  const name = req.query.firstName;
+  const name = req.query.fullName;
 
   patientsModel
-    .find({ firstName: name })
+    .find({ fullName: name })
     .populate("diagnosiss")
     .then((result) => {
       if (!result.length) {
@@ -75,7 +75,7 @@ const getPatientByName = (req, res) => {
       }
       res.status(200).json({
         success: true,
-        message: `All the patient for the first name: ${name}`,
+        message: `All the patient for the name: ${name}`,
         patient: result,
         diagnosiss: result.diagnosiss,
       });
