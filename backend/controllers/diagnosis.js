@@ -42,17 +42,16 @@ const createNewDiagnosis = (req, res) => {
     });
 };
 
-const getAllDiagnosis = (req, res) => {
-  const id = req.params.id;
-  diagnosisModel
-    .find({})
+const getDiagnosisById = (req, res) => {
+  const id = req.query._id;
+  patientsModel
+    .find({_id: id}).populate("diagnosiss")
     .then((result) => {
-      console.log(result);
       if (result.length) {
         res.status(200).json({
           success: true,
           message: `All The Diagnosis to Patient`,
-          diagnosis: result,
+          diagnosiss: result[0].diagnosiss,
         });
       } else {
         res.status(200).json({
@@ -96,5 +95,5 @@ const deleteDiagnosis = (req, res) => {
 module.exports = {
   createNewDiagnosis,
   deleteDiagnosis,
-  getAllDiagnosis,
+  getDiagnosisById,
 };
