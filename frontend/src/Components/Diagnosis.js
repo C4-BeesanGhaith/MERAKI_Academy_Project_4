@@ -1,8 +1,10 @@
 import "./Diagnosis.css";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
+import { AuthContext } from "../Context/DoctorContext";
 
 const Diagnosis = () => {
+  const { token } = useContext(AuthContext);
   const [name, setName] = useState("");
   const [patient, setPatient] = useState([]);
   const [message, setMessage] = useState("");
@@ -15,6 +17,16 @@ const Diagnosis = () => {
   const [newAmount, setNewAmount] = useState("");
   const [newDoctorSign, setNewDoctorSign] = useState("");
 
+
+  const getDiagnosisById = () => {
+      axios.get(`http://localhost:5000/patients/diagnosis`, {
+          params:{_id: patientId}
+      }).then((response) => {
+          setDiagnosiss(response.data.diagnosiss)
+      }).catch((err) => {
+          console.log(err.response.data)
+      })
+  }
 
   return (
     <>
@@ -40,6 +52,7 @@ const Diagnosis = () => {
                 setPatient(response.data.patient);
                 setDiagnosiss(response.data.patient[0].diagnosiss);
                 setPatientId(response.data.patient[0]._id);
+                // getDiagnosisById();
               })
               .catch((err) => {
                 setMessage(err.response.data.message);
@@ -81,7 +94,7 @@ const Diagnosis = () => {
                   {diagnosiss.map((element, index) => {
                     return (
                       <tr>
-                        <td>{element.dataOfVisit}</td>
+                        <td>{element.dateOfVisit}</td>
                         <td>{element.diagnosis}</td>
                         <td>{element.management}</td>
                         <td>{element.totalAmount}</td>
@@ -94,28 +107,66 @@ const Diagnosis = () => {
                   <tr>
                     <td></td>
                     <td>
-                      <input type={"text"} placeholder="Diagnosis ..." onChange={(e) => {
+                      <input
+                        type={"text"}
+                        placeholder="Diagnosis ..."
+                        onChange={(e) => {
                           setNewDiagnosis(e.target.value);
-                      }} />
+                        }}
+                      />
                     </td>
                     <td>
-                      <input type={"text"} placeholder="Management ..." onChange={(e) => {
+                      <input
+                        type={"text"}
+                        placeholder="Management ..."
+                        onChange={(e) => {
                           setNewManagement(e.target.value);
-                      }} />
+                        }}
+                      />
                     </td>
                     <td>
-                      <input type={"text"} placeholder="Total Amount ..." onChange={(e) => {
+                      <input
+                        type={"text"}
+                        placeholder="Total Amount ..."
+                        onChange={(e) => {
                           setNewAmount(e.target.value);
-                      }} />
+                        }}
+                      />
                     </td>
                     <td>
-                      <input type={"text"} placeholder="Doctor's Signature ..." onChange={(e) => {
+                      <input
+                        type={"text"}
+                        placeholder="Doctor's Signature ..."
+                        onChange={(e) => {
                           setNewDoctorSign(e.target.value);
-                      }} />
+                        }}
+                      />
                     </td>
-                    <td><button onClick={() => {
-                        axios.post(`http://localhost:5000/patients/${patientId}/diagnosis`, {diagnosis: newDiagnosis, management: newManagement, totalAmount: newAmount, doctorSign: newDoctorSign}, {headers: {Athorization: `Bearer`}})
-                    }}>Add</button></td>
+                    <td>
+                      <button
+                        onClick={() => {
+                          axios.post(
+                            `http://localhost:5000/patients/${patientId}/diagnosis`,
+                            
+                            {
+                              diagnosis: newDiagnosis,
+                              management: newManagement,
+                              totalAmount: newAmount,
+                              doctorSign: newDoctorSign,
+                            },
+                            { headers: { Authorization: `Bearer ${token}` }, },
+                          ).then((response) => {
+                              console.log(response.data.diagnosis)
+                              console.log(diagnosiss)
+                              getDiagnosisById();
+                          }).catch((err) => {
+                              console.log(err.response.data)
+                          })
+                        }}
+                      >
+                        Add
+                      </button>
+                    </td>
                   </tr>
                 </tfoot>
               </table>
