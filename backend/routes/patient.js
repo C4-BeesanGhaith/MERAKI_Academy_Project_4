@@ -10,7 +10,7 @@ const {
 const {
   createNewDiagnosis,
   deleteDiagnosis,
-  getAllDiagnosis,
+  getDiagnosisById,
 } = require("../controllers/diagnosis");
 
 // Middleware
@@ -23,10 +23,10 @@ patientsRouter.post("/", authentication, createNewPatient);
 patientsRouter.get("/", authentication, getAllPatients);
 patientsRouter.get("/search", getPatientByName);
 patientsRouter.delete("/:id", deletePatientById);
-patientsRouter.put("/:id", updatePatientById);
+patientsRouter.patch("/:id", updatePatientById);
 
 patientsRouter.post("/:id/diagnosis", authentication, createNewDiagnosis);
-patientsRouter.get("/:id/diagnosis", getAllDiagnosis);
+patientsRouter.get("/diagnosis", getDiagnosisById);
 patientsRouter.delete("/:id/diagnosis", deleteDiagnosis);
 
 module.exports = patientsRouter;
