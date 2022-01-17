@@ -11,6 +11,14 @@ const PatientList = () => {
   const [isClicked, setIsClicked] = useState(false);
   const [name, setName] = useState("");
 
+  const [fullName, setFullName] = useState("");
+  const [dateOfBirth, setDateOfBirth] = useState("");
+  const [gender, setGender] = useState("");
+  const [address, setAddress] = useState("");
+  const [phone, setPhone] = useState("");
+  const [medicalHistory, setMedicalHistory] = useState([]);
+  const [allergy, setAllergy] = useState("");
+
   // function to get all patients from database
   const getAllPatients = () => {
     axios
@@ -60,29 +68,93 @@ const PatientList = () => {
             <tbody>
               {allPatients.map((element, index) => {
                 return (
-                  <tr>
+                  <tr key={index}>
                     {isClicked ? (
                       <>
                         <td>
-                          <input value={element.fullName}/>
+                          <input
+                            defaultValue={element.fullName}
+                            onChange={(e) => {
+                              setFullName(e.target.value);
+                            }}
+                          />
                         </td>
                         <td>
-                          <input type={"date"} value={element.dataOfBirth}/>
+                          <input type="date"
+                            defaultValue={element.dateOfBirth}
+                            onChange={(e) => {
+                              setDateOfBirth(e.target.value);
+                            }}
+                          />
                         </td>
                         <td>
-                          <input value={element.gender}/>
+                          <input
+                            defaultValue={element.gender}
+                            onChange={(e) => {
+                              setGender(e.target.value);
+                            }}
+                          />
                         </td>
                         <td>
-                          <input value={element.address}/>
+                          <input
+                            defaultValue={element.address}
+                            onChange={(e) => {
+                              setAddress(e.target.value);
+                            }}
+                          />
                         </td>
                         <td>
-                          <input value={element.phone}/>
+                          <input
+                            defaultValue={element.phone}
+                            onChange={(e) => {
+                              setPhone(e.target.value);
+                            }}
+                          />
                         </td>
                         <td>
-                          <input value={element.medicalHistory}/>
+                          <input
+                            defaultValue={element.medicalHistory}
+                            onChange={(e) => {
+                              setMedicalHistory(e.target.value);
+                            }}
+                          />
                         </td>
                         <td>
-                          <input value={element.allergy}/>
+                          <input
+                            defaultValue={element.allergy}
+                            onChange={(e) => {
+                              setAllergy(e.target.value);
+                            }}
+                          />
+                        </td>
+                        <td>
+                          <button
+                            onClick={() => {
+                              axios
+                                .patch(
+                                  `http://localhost:5000/patients/${element._id}`,
+                                  {
+                                    fullName,
+                                    dateOfBirth,
+                                    gender,
+                                    address,
+                                    phone,
+                                    medicalHistory,
+                                    allergy,
+                                  }
+                                )
+                                .then((response) => {
+                                  console.log(response);
+                                  getAllPatients();
+                                  setIsClicked(false);
+                                })
+                                .catch((err) => {
+                                  console.log(err);
+                                });
+                            }}
+                          >
+                            Update
+                          </button>
                         </td>
                       </>
                     ) : (
@@ -104,38 +176,45 @@ const PatientList = () => {
                         <td>{element.phone}</td>
                         <td>{element.medicalHistory}</td>
                         <td className="thAllergy">{element.allergy}</td>
+
+                        <td key={index} className="tdActions">
+                          <button
+                            className="btnEdit"
+                            onClick={() => {
+                              setIsClicked(true);
+                              setFullName(element.fullName);
+                              setDateOfBirth(element.dateOfBirth);
+                              setGender(element.gender);
+                              setAddress(element.address);
+                              setPhone(element.phone);
+                              setMedicalHistory(element.medicalHistory);
+                              setAllergy(element.allergy);
+                              console.log(element._id);
+                            }}
+                          >
+                            Edit
+                          </button>
+                          <button
+                            className="btnDelete"
+                            onClick={() => {
+                              axios
+                                .delete(
+                                  `http://localhost:5000/patients/${element._id}`
+                                )
+                                .then((response) => {
+                                  console.log(response);
+                                  getAllPatients();
+                                })
+                                .catch((err) => {
+                                  console.log(err);
+                                });
+                            }}
+                          >
+                            Delete
+                          </button>
+                        </td>
                       </>
                     )}
-                    <td className="tdActions">
-                      <button
-                        className="btnEdit"
-                      
-                        onClick={() => {
-                          setIsClicked(true);
-
-                        }}
-                      >
-                        Edit
-                      </button>
-                      <button
-                        className="btnDelete"
-                        onClick={() => {
-                          axios
-                            .delete(
-                              `http://localhost:5000/patients/${element._id}`
-                            )
-                            .then((response) => {
-                              console.log(response);
-                              getAllPatients();
-                            })
-                            .catch((err) => {
-                              console.log(err);
-                            });
-                        }}
-                      >
-                        Delete
-                      </button>
-                    </td>
                   </tr>
                 );
               })}

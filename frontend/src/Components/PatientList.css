@@ -52,6 +52,10 @@ th, td {
     width: 50ch;
 }
 
+td:hover {
+    background-color: rgb(236, 233, 233);
+}
+
 .btnName {
     font-family: cursive;
     font-size: 1em;
@@ -60,9 +64,12 @@ th, td {
     width: 100%;
 }
 
+
 .btnName:hover {
     cursor: pointer;
     color: blue;
+    background-color: rgb(236, 233, 233);
+
 }
 
 
