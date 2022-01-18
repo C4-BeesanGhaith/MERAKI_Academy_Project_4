@@ -1,55 +1,89 @@
+.mainRegDiv {
+  font-family: cursive;
+  width: 40%;
+  border: solid 0.5ch rgb(156, 209, 218);
+  border-radius: 20%;
+  margin-top: 3ch;
+  margin-left: 15ch;
+  padding-left: 3%;
+  background-color: white;
+  opacity: 0.9;
+}
+
 .registerDiv {
-    /* display: flex;
-    flex-direction: column; */
-    padding-left: 2%;
-    margin-top: 3ch;
-    margin-left: 15ch;
-    width: 40%;
-    border: solid 0.5ch rgb(156, 209, 218);
-    font-family: cursive;
-    border-radius: 20%;
-    
+  display: grid;
+  grid-template-columns: 12ch 40ch;
+  gap: 1ch;
+  justify-content: center;
 }
 
 .paraReg {
-    text-align: center;
-    font-size: 2em;
-    margin-bottom: auto;
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: auto;
 }
 
 .inputRegister {
-    height: 4ch;
-    width: 60%;
-    border-radius: 5ch;
-    border: solid 0.5ch rgb(183, 233, 235);
-    text-align: center;
-    font-family: cursive;
-    margin-left: 3ch;
+  height: 4ch;
+  width: 85%;
+  border-radius: 5ch;
+  border: solid 0.5ch rgb(183, 233, 235);
+  text-align: center;
+  font-family: cursive;
+  font-weight: bold;
 }
 
 .lblRegister {
-    margin-left: 5%;
+  margin-top: 1ch;
 }
 
 .btnRegister {
-    text-align: center;
-    margin-top: 3ch;
-    margin-left: 35%;
-    margin-bottom: 1ch;
-    border-radius: 5ch;
-    border: solid 0.5ch rgb(183, 233, 235);
-    width: 15ch;
-    height: 10vh;
-    font-family: cursive;
-    font-size: 1em;
-    background-color: white;
+  text-align: center;
+  margin-top: 3ch;
+  margin-left: 18ch;
+  margin-bottom: 2ch;
+  border-radius: 5ch;
+  border: solid 0.5ch rgb(183, 233, 235);
+  width: 15ch;
+  height: 10vh;
+  font-family: cursive;
+  font-size: 1em;
+  background-color: white;
 }
 
 .btnRegister:hover {
-    cursor: pointer;
-    color: rgb(26, 26, 75);
+  cursor: pointer;
+  color: rgb(26, 26, 75);
 }
 
 .messageRegister {
+    margin-left: 20ch;
+}
+
+
+.Success_Message {
+    width: 40%;
+    margin-left: 26%;
+    margin-bottom: 2ch;
+    padding-top: 1ch;
+    padding-bottom: 1ch;
+    color: rgb(6, 173, 173);
     text-align: center;
+    border-radius: 5ch;
+    border: solid 0.5ch  rgb(156, 209, 218);
+    background-color: white;
+    opacity: 0.9;
+}
+
+.Error_Message {
+    width: 40%;
+    margin-left: 26%;
+    margin-bottom: 2ch;
+    padding-top: 1ch;
+    padding-bottom: 1ch;
+    color: rgb(138, 8, 8);
+    text-align: center;
+    border-radius: 5ch;
+    background-color: white;
+    opacity: 0.9;
 }
