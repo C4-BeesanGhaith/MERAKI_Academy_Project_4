@@ -1,0 +1,133 @@
+.mainAddDiv {
+    margin-left: 5ch;
+    margin-top: 3ch;
+}
+
+.paraAdd {
+    font-size: 1.5em;
+    font-family: cursive;
+    font-weight: bold;
+}
+
+.addNewPatientDiv {
+    display: flex;
+    flex-direction: row;
+    gap: 2ch;
+    margin-left: 2ch;
+}
+
+#picAdd {
+    font-size: 2em;
+    margin-top: 0.7ch;
+}
+
+.informationDiv {
+    /* margin-left: 4ch; */
+    font-family: cursive;
+}
+
+.paraInfo {
+    font-size: 1.3em;
+    color: rgb(6, 173, 173);
+    font-weight: bold;
+    margin-top: 2ch;
+}
+
+.patientInfoDiv {
+    border: solid 0.5ch rgb(156, 209, 218);
+    border-radius: 3ch;
+    padding-left: 3ch;
+    margin-right: 5ch;
+    background-color: white;
+    opacity: 0.9;
+}
+
+.inputDiv {
+    display: grid;
+    grid-template-columns: 13ch 40ch 13ch 40ch;
+    gap: 1ch;
+    padding-left: 2.5ch;
+    margin-bottom: 3ch;
+}
+
+.inputAdd {
+    height: 3ch;
+    width: 80%;
+    border-radius: 5ch;
+    border: solid 0.5ch rgb(183, 233, 235);
+    text-align: center;
+    font-family: cursive;
+    font-weight: bold;
+}
+
+.radioAdd {
+    margin-left: 5ch;
+}
+
+.inputDiv_2 {
+    display: grid;
+    grid-template-columns: 15ch 60ch;
+    gap: 2ch;
+    padding-left: 2.5ch;
+}
+
+.yesNoDiv {
+    margin-right:5ch;
+}
+
+.checkboxDiv {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5ch;
+}
+
+.box2 {
+    margin-left: 4ch;
+}
+
+.btnAdd {
+    text-align: center;
+    margin-left: 43%;
+    margin-bottom: 2ch;
+    border-radius: 5ch;
+    border: solid 0.5ch  rgb(156, 209, 218);
+    width: 15ch;
+    height: 10vh;
+    font-family: cursive;
+    font-size: 1em;
+    font-weight: bold;
+    background-color: white;
+    margin-top: 3ch;
+}
+
+.btnAdd:hover {
+    cursor: pointer;
+    color: rgb(6, 173, 173);
+}
+
+.SuccessMessage {
+    width: 40%;
+    margin-left: 29%;
+    margin-bottom: 2ch;
+    padding-top: 1ch;
+    padding-bottom: 1ch;
+    color: rgb(6, 173, 173);
+    text-align: center;
+    border-radius: 5ch;
+    border: solid 0.5ch  rgb(156, 209, 218);
+    background-color: white;
+    opacity: 0.9;
+}
+
+.ErrorMessage {
+    width: 40%;
+    margin-left: 29%;
+    margin-bottom: 2ch;
+    padding-top: 1ch;
+    padding-bottom: 1ch;
+    color: rgb(138, 8, 8);
+    text-align: center;
+    border-radius: 5ch;
+    background-color: white;
+    opacity: 0.9;
+}
