@@ -2,11 +2,12 @@ const doctorsModel = require("../database/models/doctorsSchema");
 
 // This function creates a new doctor
 const createNewDoctor = (req, res) => {
-    const {firstName, lastName, age, postTitle, phone, email, password} = req.body;
+    const {firstName, lastName, dateOfBirth, age, postTitle, phone, email, password} = req.body;
 
     const doctor = new doctorsModel({
         firstName,
         lastName,
+        dateOfBirth,
         age,
         postTitle,
         phone,
