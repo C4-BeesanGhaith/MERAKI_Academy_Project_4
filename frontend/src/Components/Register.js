@@ -5,18 +5,22 @@ import axios from "axios";
 const Register = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [dateOfBirth, setDateOfBirth] = useState("");
   const [age, setAge] = useState(0);
   const [postTitle, setPostTitle] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const [status, setStatus] = useState(false);
+  
 
   const createNewDoctor = () => {
     axios
       .post("http://localhost:5000/doctors/", {
         firstName,
         lastName,
+        dateOfBirth,
         age,
         postTitle,
         phone,
@@ -25,17 +29,19 @@ const Register = () => {
       })
       .then((response) => {
         setMessage(response.data.message);
+        setStatus(true);
       })
       .catch((err) => {
         setMessage(err.response.data.message);
+        setStatus(false);
       });
   };
 
   return (
-    <>
-      <div className="registerDiv">
+    <><div className="mainRegDiv">
         <p className="paraReg">Register</p>
         <br />
+      <div className="registerDiv">
         <label className="lblRegister">First Name:</label>
         <input
           className="inputRegister"
@@ -45,7 +51,6 @@ const Register = () => {
             setFirstName(e.target.value);
           }}
         />
-        <br />
         <label className="lblRegister">Last Name:</label>
         <input
           className="inputRegister"
@@ -55,7 +60,15 @@ const Register = () => {
             setLastName(e.target.value);
           }}
         />
-        <br />
+        <label className="lblRegister">Bitrh Date:</label>
+        <input
+          className="inputRegister"
+          type="date"
+          placeholder="Birth Date ..."
+          onChange={(e) => {
+            setDateOfBirth(e.target.value);
+          }}
+        />
         <label className="lblRegister">Age:</label>
         <input
           className="inputRegister"
@@ -65,7 +78,6 @@ const Register = () => {
             setAge(e.target.value);
           }}
         />
-        <br />
         <label className="lblRegister">Post Title:</label>
         <input
           className="inputRegister"
@@ -75,7 +87,6 @@ const Register = () => {
             setPostTitle(e.target.value);
           }}
         />
-        <br />
         <label className="lblRegister">Phone Number:</label>
         <input
           className="inputRegister"
@@ -85,7 +96,6 @@ const Register = () => {
             setPhone(e.target.value);
           }}
         />
-        <br />
         <label className="lblRegister">Email:</label>
         <input
           className="inputRegister"
@@ -95,7 +105,6 @@ const Register = () => {
             setEmail(e.target.value);
           }}
         />
-        <br />
         <label className="lblRegister">Password:</label>
         <input
           className="inputRegister"
@@ -105,12 +114,14 @@ const Register = () => {
             setPassword(e.target.value);
           }}
         />
-        <br />
+        </div>
         <button className="btnRegister" onClick={createNewDoctor}>
           Register
         </button>
-        {message && <p className="messageRegister">{message}</p>}
-      </div>
+        {status
+              ? message && <div className="Success_Message">{message}</div>
+              : message && <div className="Error_Message">{message}</div>}
+        </div>
     </>
   );
 };
