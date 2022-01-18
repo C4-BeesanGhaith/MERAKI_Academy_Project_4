@@ -63,7 +63,7 @@ const Diagnosis = () => {
       <br />
       {isSearch ? (
         <>
-          <div className="contenerDiv">
+          <div className="containerDiv">
             <div className="profileDiv">
               {patient.map((element, index) => {
                 return (
