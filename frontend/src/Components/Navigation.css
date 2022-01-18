@@ -6,7 +6,7 @@
     margin-top: 3ch;
     justify-content: center;
     font-family: cursive;
-    margin-left: 10ch;
+    margin-left: 15ch;
 }
 
 .header {
@@ -18,9 +18,9 @@
 #pic {
     display: flex;
     flex-direction: row;
-    font-size: 3em;
+    font-size: 2.5em;
     margin-top: 0.3ch;
-    margin-left: 0.1ch;
+    margin-left: 0.4ch;
 }
 
 .paraTitle {

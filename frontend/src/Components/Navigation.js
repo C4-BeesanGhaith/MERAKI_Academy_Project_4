@@ -9,7 +9,8 @@ const Navigation = () => {
   return (
     <>
       <div className="header">
-      <i class="fas fa-users-medical" id="pic"></i>
+      <i class="fas fa-hospital-user" id="pic"></i>
+      {/* <i class="fas fa-users-medical" id="pic"></i> */}
         <p className="paraTitle">FAMILY</p><p className="paraTitle2">CLINIC</p>
         {isLoggedIn ? (
           <>
