@@ -1,11 +1,13 @@
 .loginDiv {
     padding-left: 2%;
-    margin-top: 3ch;
-    margin-left: 20ch;
+    margin-top: 8ch;
+    margin-left: 15ch;
     width: 32%;
     border: solid 0.5ch rgb(156, 209, 218);
     font-family: cursive;
     border-radius: 20%;
+    background-color: white;
+    opacity: 0.9;
 }
 
 .paraLogin {
@@ -31,9 +33,8 @@
 
 .btnLogin {
     text-align: center;
-    /* margin-top: 3ch; */
     margin-left: 30%;
-    margin-bottom: 1ch;
+    margin-bottom: 3ch;
     border-radius: 5ch;
     border: solid 0.5ch rgb(183, 233, 235);
     width: 15ch;
