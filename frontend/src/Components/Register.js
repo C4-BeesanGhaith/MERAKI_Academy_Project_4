@@ -39,7 +39,7 @@ const Register = () => {
         <label className="lblRegister">First Name:</label>
         <input
           className="inputRegister"
-          type={"text"}
+          type="text"
           placeholder="First Name ..."
           onChange={(e) => {
             setFirstName(e.target.value);
@@ -49,7 +49,7 @@ const Register = () => {
         <label className="lblRegister">Last Name:</label>
         <input
           className="inputRegister"
-          type={"text"}
+          type="text"
           placeholder="Last Name ..."
           onChange={(e) => {
             setLastName(e.target.value);
@@ -59,7 +59,7 @@ const Register = () => {
         <label className="lblRegister">Age:</label>
         <input
           className="inputRegister"
-          type={"number"}
+          type="number"
           placeholder="Age ..."
           onChange={(e) => {
             setAge(e.target.value);
@@ -69,7 +69,7 @@ const Register = () => {
         <label className="lblRegister">Post Title:</label>
         <input
           className="inputRegister"
-          type={"text"}
+          type="text"
           placeholder="Post Title ..."
           onChange={(e) => {
             setPostTitle(e.target.value);
@@ -79,7 +79,7 @@ const Register = () => {
         <label className="lblRegister">Phone Number:</label>
         <input
           className="inputRegister"
-          type={"text"}
+          type="text"
           placeholder="Phone Number ..."
           onChange={(e) => {
             setPhone(e.target.value);
@@ -89,7 +89,7 @@ const Register = () => {
         <label className="lblRegister">Email:</label>
         <input
           className="inputRegister"
-          type={"text"}
+          type="text"
           placeholder="Email ..."
           onChange={(e) => {
             setEmail(e.target.value);
@@ -99,7 +99,7 @@ const Register = () => {
         <label className="lblRegister">Password:</label>
         <input
           className="inputRegister"
-          type={"password"}
+          type="password"
           placeholder="Password ..."
           onChange={(e) => {
             setPassword(e.target.value);
