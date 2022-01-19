@@ -5,7 +5,8 @@
 }
 
 .profileDiv {
-  border: solid 0.5ch rgb(156, 209, 218);
+  border-bottom: solid 0.5ch black;
+  border-left: solid 0.5ch black;
   background-color: white;
   opacity: 0.8;
   border-radius: 3ch;
@@ -28,7 +29,8 @@
 }
 
 .diagnosisDiv {
-  border: solid 0.5ch rgb(156, 209, 218);
+  border-bottom: solid 0.5ch black;
+  border-left: solid 0.5ch black;
   background-color: white;
   opacity: 0.9;
   border-radius: 3ch;
