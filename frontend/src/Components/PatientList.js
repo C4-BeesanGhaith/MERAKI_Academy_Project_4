@@ -52,17 +52,17 @@ const PatientList = () => {
           <p className="paraList">Patient List</p>
         </div>
         <div>
-          <table className="table">
+          <table className="tableList">
             <thead>
               <tr>
                 <th className="thName">Full Name</th>
-                <th>Birth Date</th>
+                <th className="thList">Birth Date</th>
                 <th className="thGender">Gender</th>
-                <th>Address</th>
-                <th>Phone Number</th>
-                <th>Medical History</th>
+                <th className="thList">Address</th>
+                <th className="thList">Phone Number</th>
+                <th className="thList">Medical History</th>
                 <th className="thAllergy">Allergy</th>
-                <th>Actions</th>
+                <th className="thList">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -71,7 +71,7 @@ const PatientList = () => {
                   <tr key={index}>
                     {isClicked ? (
                       <>
-                        <td>
+                        <td className="tdList">
                           <input
                             defaultValue={element.fullName}
                             onChange={(e) => {
@@ -79,7 +79,7 @@ const PatientList = () => {
                             }}
                           />
                         </td>
-                        <td>
+                        <td className="tdList">
                           <input type="date"
                             defaultValue={element.dateOfBirth}
                             onChange={(e) => {
@@ -87,7 +87,7 @@ const PatientList = () => {
                             }}
                           />
                         </td>
-                        <td>
+                        <td className="tdList">
                           <input
                             defaultValue={element.gender}
                             onChange={(e) => {
@@ -95,7 +95,7 @@ const PatientList = () => {
                             }}
                           />
                         </td>
-                        <td>
+                        <td className="tdList">
                           <input
                             defaultValue={element.address}
                             onChange={(e) => {
@@ -103,7 +103,7 @@ const PatientList = () => {
                             }}
                           />
                         </td>
-                        <td>
+                        <td className="tdList">
                           <input
                             defaultValue={element.phone}
                             onChange={(e) => {
@@ -111,7 +111,7 @@ const PatientList = () => {
                             }}
                           />
                         </td>
-                        <td>
+                        <td className="tdList">
                           <input
                             defaultValue={element.medicalHistory}
                             onChange={(e) => {
@@ -119,7 +119,7 @@ const PatientList = () => {
                             }}
                           />
                         </td>
-                        <td>
+                        <td className="tdList">
                           <input
                             defaultValue={element.allergy}
                             onChange={(e) => {
@@ -127,7 +127,7 @@ const PatientList = () => {
                             }}
                           />
                         </td>
-                        <td>
+                        <td className="tdList">
                           <button
                             onClick={() => {
                               axios
@@ -159,7 +159,7 @@ const PatientList = () => {
                       </>
                     ) : (
                       <>
-                        <td>
+                        <td className="tdList">
                           <button
                             className="btnName"
                             value={element.fullName}
@@ -170,14 +170,14 @@ const PatientList = () => {
                             {element.fullName}
                           </button>
                         </td>
-                        <td>{element.dateOfBirth}</td>
+                        <td className="tdList">{element.dateOfBirth}</td>
                         <td className="tdGender">{element.gender}</td>
-                        <td>{element.address}</td>
-                        <td>{element.phone}</td>
-                        <td>{element.medicalHistory}</td>
-                        <td className="thAllergy">{element.allergy}</td>
+                        <td className="tdList">{element.address}</td>
+                        <td className="tdList">{element.phone}</td>
+                        <td className="tdList">{element.medicalHistory}</td>
+                        <td className="tdAllergy">{element.allergy}</td>
 
-                        <td key={index} className="tdActions">
+                        <td key={index} className="tdList">
                           <button
                             className="btnEdit"
                             onClick={() => {
