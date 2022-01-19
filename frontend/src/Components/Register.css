@@ -1,13 +1,15 @@
 .mainRegDiv {
   font-family: cursive;
   width: 40%;
-  border: solid 0.5ch rgb(156, 209, 218);
+  /* border: solid 0.5ch rgb(156, 209, 218); */
   border-radius: 20%;
   margin-top: 3ch;
   margin-left: 15ch;
   padding-left: 3%;
   background-color: white;
   opacity: 0.9;
+  border-top: solid 1ch rgb(156, 209, 218);
+  border-right: solid 1ch rgb(156, 209, 218);
 }
 
 .registerDiv {
@@ -66,13 +68,9 @@
     margin-left: 26%;
     margin-bottom: 2ch;
     padding-top: 1ch;
-    padding-bottom: 1ch;
+    padding-bottom: 3ch;
     color: rgb(6, 173, 173);
     text-align: center;
-    border-radius: 5ch;
-    border: solid 0.5ch  rgb(156, 209, 218);
-    background-color: white;
-    opacity: 0.9;
 }
 
 .Error_Message {
@@ -80,7 +78,7 @@
     margin-left: 26%;
     margin-bottom: 2ch;
     padding-top: 1ch;
-    padding-bottom: 1ch;
+    padding-bottom: 3ch;
     color: rgb(138, 8, 8);
     text-align: center;
     border-radius: 5ch;

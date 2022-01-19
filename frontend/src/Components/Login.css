@@ -1,55 +1,79 @@
 .loginDiv {
-    padding-left: 2%;
-    margin-top: 8ch;
-    margin-left: 15ch;
-    width: 32%;
-    border: solid 0.5ch rgb(156, 209, 218);
-    font-family: cursive;
-    border-radius: 20%;
-    background-color: white;
-    opacity: 0.9;
+  padding-left: 2%;
+  margin-top: 5ch;
+  margin-left: 15ch;
+  width: 32%;
+  /* border: solid 0.5ch rgb(156, 209, 218); */
+  font-family: cursive;
+  border-radius: 20%;
+  background-color: white;
+  opacity: 0.9;
+  border-top: solid 1ch rgb(156, 209, 218);
+  border-right: solid 1ch rgb(156, 209, 218);
 }
 
 .paraLogin {
-    text-align: center;
-    font-size: 2em;
-    margin-bottom: auto;
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: auto;
 }
 
 .inputLogin {
-    height: 4ch;
-    width: 80%;
-    border-radius: 5ch;
-    border: solid 0.5ch rgb(183, 233, 235);
-    text-align: center;
-    font-family: cursive;
-    margin-left: 3ch;
-    margin-bottom: 3ch;
+  height: 4ch;
+  width: 80%;
+  border-radius: 5ch;
+  border: solid 0.5ch rgb(183, 233, 235);
+  text-align: center;
+  font-family: cursive;
+  margin-left: 3ch;
+  margin-bottom: 3ch;
 }
 
 .lblLogin {
-    margin-left: 4ch;
+  margin-left: 4ch;
 }
 
 .btnLogin {
-    text-align: center;
-    margin-left: 30%;
-    margin-bottom: 3ch;
-    border-radius: 5ch;
-    border: solid 0.5ch rgb(183, 233, 235);
-    width: 15ch;
-    height: 10vh;
-    font-family: cursive;
-    font-size: 1em;
-    background-color: white;
+  text-align: center;
+  margin-left: 30%;
+  margin-bottom: 3ch;
+  border-radius: 5ch;
+  border: solid 0.5ch rgb(183, 233, 235);
+  width: 15ch;
+  height: 10vh;
+  font-family: cursive;
+  font-size: 1em;
+  background-color: white;
 }
 
 .btnLogin:hover {
-    cursor: pointer;
-    color: rgb(26, 26, 75);
+  cursor: pointer;
+  color: rgb(26, 26, 75);
 }
 
 .messageLogin {
-    text-align: center;
+  text-align: center;
 }
 
+.SuccessMessageL {
+  width: 50%;
+  margin-left: 26%;
+  margin-bottom: 2ch;
+  padding-top: 1ch;
+  padding-bottom: 1ch;
+  color: rgb(6, 173, 173);
+  text-align: center;
+  border-radius: 5ch;
+  border: solid 0.5ch  rgb(156, 209, 218);
+  background-color: white;
+  opacity: 0.9;
+}
+
+.ErrorMessageL {
+  width: 90%;
+  margin-bottom: 3ch;
+  padding-top: 1ch;
+  padding-bottom: 3ch;
+  color: rgb(138, 8, 8);
+  text-align: center;
+}
