@@ -16,23 +16,27 @@ const Diagnosis = () => {
   const [newManagement, setNewManagement] = useState("");
   const [newAmount, setNewAmount] = useState("");
   const [newDoctorSign, setNewDoctorSign] = useState("");
-
+  const [status, setStatus] = useState(false);
 
   const getDiagnosisById = () => {
-      axios.get(`http://localhost:5000/patients/diagnosis`, {
-          params:{_id: patientId}
-      }).then((response) => {
-          setDiagnosiss(response.data.diagnosiss)
-      }).catch((err) => {
-          console.log(err.response.data)
+    axios
+      .get(`http://localhost:5000/patients/diagnosis`, {
+        params: { _id: patientId },
       })
-  }
+      .then((response) => {
+        setDiagnosiss(response.data.diagnosiss);
+      })
+      .catch((err) => {
+        console.log(err.response.data);
+      });
+  };
 
   return (
     <>
       <div className="searchDiv">
         <input
-          type={"text"}
+          className="inputSearch"
+          type="text"
           placeholder="Search ..."
           onChange={(e) => {
             setName(e.target.value);
@@ -52,7 +56,6 @@ const Diagnosis = () => {
                 setPatient(response.data.patient);
                 setDiagnosiss(response.data.patient[0].diagnosiss);
                 setPatientId(response.data.patient[0]._id);
-                // getDiagnosisById();
               })
               .catch((err) => {
                 setMessage(err.response.data.message);
@@ -65,103 +68,109 @@ const Diagnosis = () => {
         <>
           <div className="containerDiv">
             <div className="profileDiv">
+            <p className="titleInfo">Patient Information:</p>
               {patient.map((element, index) => {
                 return (
-                  <div>
-                    <p>Full Name: {element.fullName}</p>
-                    <p>Birth Date: {element.dateOfBirth}</p>
-                    <p>Gender: {element.gender}</p>
-                    <p>Address: {element.address}</p>
-                    <p>Phone Number: {element.phone}</p>
-                    <p>Medical History: {element.medicalHistory}</p>
-                    <p>Allergy: {element.allergy}</p>
+                  <div className="dataOfPatient">
+                    <div className="divPara"><p className="title">- Full Name: </p><p className="Info">{element.fullName}</p></div>
+                    <div className="divPara"><p className="title">- Birth Date: </p><p className="Info">{element.dateOfBirth}</p></div>
+                    <div className="divPara"><p className="title">- Gender: </p><p className="Info">{element.gender}</p></div>
+                    <div className="divPara"><p className="title">- Address: </p><p className="Info">{element.address}</p></div>
+                    <div className="divPara"><p className="title">- Phone Number: </p><p className="Info">{element.phone}</p></div>
+                    <div className="divPara"><p className="title">- Medical History: </p><p className="Info">{element.medicalHistory}</p></div>
+                    <div className="divPara"><p className="title">- Allergy: </p><p className="Info">{element.allergy}</p></div>
                   </div>
                 );
               })}
             </div>
             <div className="diagnosisDiv">
-              <table>
+              <table className="tableDiag">
                 <thead>
                   <tr>
-                    <th>Date</th>
-                    <th>Diagnosis</th>
-                    <th>Management</th>
-                    <th>Total Amount</th>
-                    <th>Doctor Sign</th>
+                    <th className="thDate">Date</th>
+                    <th className="thDiag">Diagnosis</th>
+                    <th className="thDiag">Management</th>
+                    <th className="thDiag">Total Amount</th>
+                    <th className="thDiag">Doctor Sign</th>
+                    <th className="thActions">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   {diagnosiss.map((element, index) => {
                     return (
                       <tr>
-                        <td>{element.dateOfVisit}</td>
-                        <td>{element.diagnosis}</td>
-                        <td>{element.management}</td>
-                        <td>{element.totalAmount}</td>
-                        <td>{element.doctorSign}</td>
+                        <td className="tdDate">{element.dateOfVisit.split("").slice(0,10).join("")}</td>
+                        <td className="tdDiag">{element.diagnosis}</td>
+                        <td className="tdDiag">{element.management}</td>
+                        <td className="tdDiag">{element.totalAmount}</td>
+                        <td className="tdDiag">{element.doctorSign}</td>
+                        <td className="tdActions"><button className="btnDeleteD">Delete</button></td>
                       </tr>
                     );
                   })}
                 </tbody>
                 <tfoot>
                   <tr>
-                    <td></td>
-                    <td>
-                      <input
-                        type={"text"}
+                    <td className="tdDate"></td>
+                    <td  className="tdDiag">
+                      <input className="inputDiag"
+                        type="text"
                         placeholder="Diagnosis ..."
                         onChange={(e) => {
                           setNewDiagnosis(e.target.value);
                         }}
                       />
                     </td>
-                    <td>
-                      <input
-                        type={"text"}
+                    <td className="tdDiag">
+                      <input  className="inputDiag"
+                        type="text"
                         placeholder="Management ..."
                         onChange={(e) => {
                           setNewManagement(e.target.value);
                         }}
                       />
                     </td>
-                    <td>
-                      <input
-                        type={"text"}
+                    <td className="tdDiag">
+                      <input className="inputDiag"
+                        type="text"
                         placeholder="Total Amount ..."
                         onChange={(e) => {
                           setNewAmount(e.target.value);
                         }}
                       />
                     </td>
-                    <td>
-                      <input
-                        type={"text"}
+                    <td className="tdDiag">
+                      <input className="inputDiag"
+                        type="text"
                         placeholder="Doctor's Signature ..."
                         onChange={(e) => {
                           setNewDoctorSign(e.target.value);
                         }}
                       />
                     </td>
-                    <td>
-                      <button
+                    <td className="tdActions">
+                      <button className="btnAddD"
                         onClick={() => {
-                          axios.post(
-                            `http://localhost:5000/patients/${patientId}/diagnosis`,
-                            
-                            {
-                              diagnosis: newDiagnosis,
-                              management: newManagement,
-                              totalAmount: newAmount,
-                              doctorSign: newDoctorSign,
-                            },
-                            { headers: { Authorization: `Bearer ${token}` }, },
-                          ).then((response) => {
-                              console.log(response.data.diagnosis)
-                              console.log(diagnosiss)
+                          axios
+                            .post(
+                              `http://localhost:5000/patients/${patientId}/diagnosis`,
+
+                              {
+                                diagnosis: newDiagnosis,
+                                management: newManagement,
+                                totalAmount: newAmount,
+                                doctorSign: newDoctorSign,
+                              },
+                              { headers: { Authorization: `Bearer ${token}` } }
+                            )
+                            .then((response) => {
+                              console.log(response.data.diagnosis);
+                              console.log(diagnosiss);
                               getDiagnosisById();
-                          }).catch((err) => {
-                              console.log(err.response.data)
-                          })
+                            })
+                            .catch((err) => {
+                              console.log(err.response.data);
+                            });
                         }}
                       >
                         Add
@@ -176,7 +185,9 @@ const Diagnosis = () => {
       ) : (
         <></>
       )}
-      {message && <p>{message}</p>}
+      {status
+        ? message && <div className="SuccessMessageS">{message}</div>
+        : message && <div className="ErrorMessageS">{message}</div>}
     </>
   );
 };
