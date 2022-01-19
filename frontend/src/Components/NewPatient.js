@@ -51,7 +51,7 @@ const NewPatient = () => {
                 type="number"
                 placeholder="Age ..."
                 onChange={(e) => {
-                  return setAge(e.target.value);
+                  return setAge(dateOfBirth-Date.now());
                 }}
               />
               <label>Gender:</label>
