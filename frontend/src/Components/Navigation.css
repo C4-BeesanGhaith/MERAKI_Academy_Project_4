@@ -2,7 +2,7 @@
     font-size: 1em;
     display: flex;
     flex-direction: row;
-    gap: 5ch;
+    gap: 7ch;
     margin-top: 3ch;
     justify-content: center;
     font-family: cursive;
@@ -15,6 +15,7 @@
     margin-top: 3ch;
     margin-left: 3ch;
     margin-right: 3ch;
+    padding-top: 1ch;
     border: solid 0.5ch rgb(156, 209, 218);
     border-radius: 3ch;
     background-color: white;
@@ -50,5 +51,5 @@
 }
 
 #listPic {
-    margin-right: 1ch;
+    margin-right: 0.5ch;
 }
