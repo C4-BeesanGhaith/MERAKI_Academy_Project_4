@@ -20,7 +20,7 @@
     margin-top: 0.6ch;
 }
 
-.table {
+.tableList {
     text-align: center;
     margin-left: 1ch;
     margin-right: 1ch;
@@ -34,7 +34,7 @@
     font-weight: bold;
 }
 
-th, td {
+.thList, .tdList {
     height: 3vh;
     width: 30ch;
     border: solid 0.2ch rgb(156, 209, 218);
@@ -42,14 +42,20 @@ th, td {
 
 .tdGender, .thGender {
     width: 15ch;
+    height: 3vh;
+    border: solid 0.2ch rgb(156, 209, 218);
 }
 
 .tdAllergy, .thAllergy {
     width: 10ch;
+    height: 3vh;
+    border: solid 0.2ch rgb(156, 209, 218);
 }
 
 .thName {
     width: 50ch;
+    height: 3vh;
+    border: solid 0.2ch rgb(156, 209, 218);
 }
 
 td:hover {
