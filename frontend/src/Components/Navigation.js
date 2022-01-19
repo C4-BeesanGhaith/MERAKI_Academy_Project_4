@@ -20,8 +20,14 @@ const Navigation = () => {
               </Link>
               <div><i class="fad fa-clipboard-list-check" id="listPic"></i>
               <Link to="/patients" className="link">Patient List</Link></div>
-              <Link to="/new" className="link">New</Link>
-              <Link to="/diagnosis" className="link">Diagnosis Page</Link>
+              <div>
+                <i class="fas fa-users-medical" id="listPic"></i>
+                <Link to="/new" className="link">Add New Patient</Link>
+                </div>
+                <div>
+                <i class="far fa-user-md-chat" id="listPic"></i>
+                <Link to="/diagnosis" className="link">Diagnosis Page</Link>
+                </div>
             </div>
           </>
         ) : (
