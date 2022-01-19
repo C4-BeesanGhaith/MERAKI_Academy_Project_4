@@ -141,7 +141,16 @@ const NewPatient = () => {
                   }}
                 />
                 <label>Drug Allergy</label>
-                <br />
+                <input
+                  className="box2"
+                  type="checkbox"
+                  name="medicalHistory"
+                  value="Nothing"
+                  onChange={(e) => {
+                    return setMedicalHistory(e.target.value);
+                  }}
+                />
+                <label>Nothing</label>
               </div>
               <label>Allergy:</label>
               <div>

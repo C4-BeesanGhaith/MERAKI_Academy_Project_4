@@ -13,6 +13,8 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const [status, setStatus] = useState(false);
+
 
   // function Login
   const login = async () => {
@@ -23,15 +25,17 @@ const Login = () => {
       });
       if (res.data.success) {
         saveToken(res.data.token);
-        console.log(res.data.token);
         setIsLoggedIn(true);
         setMessage("");
+        setStatus(true)
       } else throw Error;
     } catch (err) {
       if (err.response && err.response.data) {
+        setStatus(false)
         return setMessage(err.response.data.message);
       }
       setMessage("Error happened while Login, Please try again");
+      setStatus(false)
     }
   };
 
@@ -39,7 +43,7 @@ const Login = () => {
 
   useEffect(() => {
     if (isLoggedIn) {
-      navigate("/about");
+      navigate("/appointment");
     }
   });
 
@@ -51,9 +55,10 @@ const Login = () => {
         <p className="paraLogin">Login</p>
         <br />
         <label className="lblLogin">Email:</label>
-        <br/>
-        <input className="inputLogin"
-          type={"text"}
+        <br />
+        <input
+          className="inputLogin"
+          type="text"
           placeholder="Email ..."
           onChange={(e) => {
             setEmail(e.target.value);
@@ -61,17 +66,22 @@ const Login = () => {
         />
         <br />
         <label className="lblLogin">Password:</label>
-        <br/>
-        <input className="inputLogin"
-          type={"password"}
+        <br />
+        <input
+          className="inputLogin"
+          type="password"
           placeholder="Password ..."
           onChange={(e) => {
             setPassword(e.target.value);
           }}
         />
         <br />
-        <button className="btnLogin" onClick={login}>Login</button>
-        {message && <p className="messageLogin">{message}</p>}
+        <button className="btnLogin" onClick={login}>
+          Login
+        </button>
+        {status
+          ? message && <div className="SuccessMessageL">{message}</div>
+          : message && <div className="ErrorMessageL">{message}</div>}
       </div>
     </>
   );
