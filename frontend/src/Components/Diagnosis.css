@@ -1,21 +1,158 @@
 .containerDiv {
-    display: flex;
-    flex-direction: row;
-    gap: 2ch;
+  display: flex;
+  flex-direction: column;
+  gap: 2ch;
 }
 
 .profileDiv {
-    width: 30%;
-    height: 100%;
-    border: solid 0.5ch rgb(156, 209, 218);
-    background-color: white;
-    opacity: 0.8;
+  border: solid 0.5ch rgb(156, 209, 218);
+  background-color: white;
+  opacity: 0.8;
+  border-radius: 3ch;
+  margin-left: 3ch;
+  margin-right: 3ch;
+  margin-top: 2ch;
+  padding-bottom: 3ch;
+  padding-left: 2ch;
+  font-family: cursive;
+}
+
+.dataOfPatient {
+  display: grid;
+  grid-template-columns: auto auto;
+  width: 75%;
+}
+
+.Info {
+  margin-left: 1.5ch;
 }
 
 .diagnosisDiv {
-    width: 70%;
-    height: 100%;
-    border: solid 0.5ch rgb(156, 209, 218);
+  border: solid 0.5ch rgb(156, 209, 218);
+  background-color: white;
+  opacity: 0.9;
+  border-radius: 3ch;
+  margin-left: 3ch;
+  margin-top: 1ch;
+  margin-right: 3ch;
+  margin-bottom: 3ch;
+  padding: 2ch 2ch 2ch 2ch;
+}
+
+.searchDiv {
+  margin-top: 5ch;
+  margin-left: 10ch;
+}
+
+.inputSearch {
+  height: 4ch;
+  width: 50ch;
+  border-radius: 5ch;
+  border: solid 0.5ch rgb(183, 233, 235);
+  text-align: center;
+  font-family: cursive;
+  font-weight: bold;
+}
+
+#search {
+  margin-left: 0.5ch;
+  font-size: 1.5em;
+}
+
+.titleInfo {
+  font-size: 1.3em;
+  color: rgb(6, 173, 173);
+  font-weight: bold;
+  margin-top: 2ch;
+  margin-left: 5ch;
+  text-decoration: underline;
+}
+
+.title {
+  color: rgb(4, 117, 117);
+  font-weight: bold;
+  margin-left: 9ch;
+}
+
+.divPara {
+  display: flex;
+  flex-direction: row;
+  height: 4ch;
+}
+
+
+.SuccessMessageS {
+  width: 40%;
+  margin-left: 7ch;
+  margin-bottom: 2ch;
+  margin-top: 5ch;
+  padding-top: 1ch;
+  padding-bottom: 1ch;
+  color: rgb(6, 173, 173);
+  text-align: center;
+  border-radius: 5ch;
+  border: solid 0.5ch rgb(156, 209, 218);
+  background-color: white;
+  opacity: 0.9;
+  font-family: cursive;
+}
+
+.ErrorMessageS {
+  width: 40%;
+  margin-left: 7ch;
+  margin-bottom: 2ch;
+  margin-top: 5ch;
+  padding-top: 1ch;
+  padding-bottom: 1ch;
+  color: rgb(138, 8, 8);
+  text-align: center;
+  border-radius: 5ch;
+  background-color: white;
+  opacity: 0.9;
+  font-family: cursive;
+}
+
+.tableDiag {
+    width: 100%;
+}
+
+.thDiag,
+.tdDiag {
+    width: 20ch;
+  border: solid 0.2ch rgb(156, 209, 218);
+  text-align: center;
+  font-family: cursive;
+}
+
+.thDate,
+.tdDate {
+  width: 10ch;
+  border: solid 0.2ch rgb(156, 209, 218);
+  text-align: center;
+  font-family: cursive;
+}
+
+.tdActions, .thActions {
+    width: 8ch;
+  border: solid 0.2ch rgb(156, 209, 218);
+  text-align: center;
+  font-family: cursive;
+}
+
+
+.inputDiag {
+  width: 90%;
+  font-family: cursive;
+  text-align: center;
+  border: none;
+  border-bottom: 0.2ch solid;
+}
+
+.btnAddD, .btnDeleteD {
+    font-family: cursive;
+    border-radius: 1ch;
     background-color: white;
-    opacity: 0.9;
+    border: solid 0.1ch rgb(156, 209, 218);
+    width: 8ch;
+    font-size: 1em;
 }
