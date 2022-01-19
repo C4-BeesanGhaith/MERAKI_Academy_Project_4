@@ -72,10 +72,7 @@ const Diagnosis = () => {
               {patient.map((element, index) => {
                 return (
                   <div className="dataOfPatient">
-                    <div className="divPara"><p className="title">- Full Name: </p><p className="Info">{element.fullName}</p></div>
-                    <div className="divPara"><p className="title">- Birth Date: </p><p className="Info">{element.dateOfBirth}</p></div>
-                    <div className="divPara"><p className="title">- Gender: </p><p className="Info">{element.gender}</p></div>
-                    <div className="divPara"><p className="title">- Address: </p><p className="Info">{element.address}</p></div>
+                    <div className="divPara"><p className="title">- Name: </p><p className="Info">{element.fullName}</p></div>
                     <div className="divPara"><p className="title">- Phone Number: </p><p className="Info">{element.phone}</p></div>
                     <div className="divPara"><p className="title">- Medical History: </p><p className="Info">{element.medicalHistory}</p></div>
                     <div className="divPara"><p className="title">- Allergy: </p><p className="Info">{element.allergy}</p></div>
@@ -104,7 +101,14 @@ const Diagnosis = () => {
                         <td className="tdDiag">{element.management}</td>
                         <td className="tdDiag">{element.totalAmount}</td>
                         <td className="tdDiag">{element.doctorSign}</td>
-                        <td className="tdActions"><button className="btnDeleteD">Delete</button></td>
+                        <td className="tdActions"><button className="btnDeleteD" onClick={() => {
+                          axios.delete(`http://localhost:5000/patients/${element._id}/diagnosis`).then((response) => {
+                            console.log(response)
+                            getDiagnosisById();
+                          }).catch((err) => {
+
+                          })
+                        }}>Delete</button></td>
                       </tr>
                     );
                   })}
@@ -164,8 +168,6 @@ const Diagnosis = () => {
                               { headers: { Authorization: `Bearer ${token}` } }
                             )
                             .then((response) => {
-                              console.log(response.data.diagnosis);
-                              console.log(diagnosiss);
                               getDiagnosisById();
                             })
                             .catch((err) => {
