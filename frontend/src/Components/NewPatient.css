@@ -66,7 +66,7 @@
 
 .inputDiv_2 {
     display: grid;
-    grid-template-columns: 15ch 60ch;
+    grid-template-columns: 15ch 80ch;
     gap: 2ch;
     padding-left: 2.5ch;
 }
@@ -78,11 +78,11 @@
 .checkboxDiv {
     display: flex;
     flex-direction: row;
-    gap: 0.5ch;
+    gap: 0.4ch;
 }
 
 .box2 {
-    margin-left: 4ch;
+    margin-left: 5ch;
 }
 
 .btnAdd {

@@ -92,3 +92,20 @@ td:hover {
     cursor: pointer;
     color: blue;
 }
+
+.btnUpdate {
+    font-family: cursive;
+    border-radius: 1ch;
+    background-color: white;
+    border: solid 0.1ch rgb(156, 209, 218);
+    width: 8ch;
+    font-size: 1em;
+}
+
+.inputUpdate {
+    width: 90%;
+    font-family: cursive;
+    text-align: center;
+    border: none;
+    border-bottom: 0.2ch solid;
+}

@@ -1,55 +1,57 @@
 .links {
-    font-size: 1em;
-    display: flex;
-    flex-direction: row;
-    gap: 7ch;
-    margin-top: 3ch;
-    justify-content: center;
-    font-family: cursive;
-    margin-left: 15ch;
+  font-size: 1em;
+  display: flex;
+  flex-direction: row;
+  gap: 5ch;
+  margin-top: 3ch;
+  justify-content: center;
+  font-family: cursive;
+  margin-left: 15ch;
 }
 
 .header {
-    display: flex;
-    flex-direction: row;
-    margin-top: 3ch;
-    margin-left: 3ch;
-    margin-right: 3ch;
-    padding-top: 1ch;
-    border: solid 0.5ch rgb(156, 209, 218);
-    border-radius: 3ch;
-    background-color: white;
-    opacity: 0.9;
+  display: flex;
+  flex-direction: row;
+  margin-top: 3ch;
+  margin-left: 3ch;
+  margin-right: 3ch;
+  padding-top: 2ch;
+  /* border: solid 0.5ch rgb(156, 209, 218); */
+  border-bottom: solid 0.5ch black;
+  border-left: solid 0.5ch black;
+  border-radius: 3ch;
+  background-color: white;
+  opacity: 0.9;
 }
 
 #pic {
-    display: flex;
-    flex-direction: row;
-    font-size: 2.5em;
-    margin-top: 0.3ch;
-    margin-left: 0.4ch;
+  display: flex;
+  flex-direction: row;
+  font-size: 2.5em;
+  margin-top: 0.3ch;
+  margin-left: 1.4ch;
 }
 
 .paraTitle {
-    font-size: 1.5em;
-    font-family: cursive;
-    font-weight: bold;
-    margin-left: 0.5ch;
-    color: rgb(32, 32, 209);
+  font-size: 1.5em;
+  font-family: cursive;
+  font-weight: bold;
+  margin-left: 0.6ch;
+  color: rgb(105, 105, 212);
 }
 
 .paraTitle2 {
-    font-size: 1.5em;
-    font-family: cursive;
-    font-weight: bold;
-    margin-left: 0.5ch;
+  font-size: 1.5em;
+  font-family: cursive;
+  font-weight: bold;
+  margin-left: 0.5ch;
 }
 
-.link { 
-    text-decoration: none;
-    color: black;
+.link {
+  text-decoration: none;
+  color: black;
 }
 
 #listPic {
-    margin-right: 0.5ch;
+  margin-right: 0.5ch;
 }
