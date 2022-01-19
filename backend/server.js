@@ -12,12 +12,14 @@ app.use(express.json());
 const doctorsRouter = require("./routes/doctor");
 const patientsRouter = require("./routes/patient");
 const loginRouter = require("./routes/login");
+const appointmentRouter = require("./routes/appointment");
 
 
 // Routes Middleware
 app.use("/doctors", doctorsRouter);
 app.use("/patients", patientsRouter);
 app.use("/login", loginRouter);
+app.use("/appointment", appointmentRouter);
 
 
 const PORT = 5000;
