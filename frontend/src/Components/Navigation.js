@@ -15,9 +15,9 @@ const Navigation = () => {
         {isLoggedIn ? (
           <>
             <div className="links">
-              <Link to="/about" className="link">
-                About Us
-              </Link>
+              <div><i class="fad fa-calendar-check" id="listPic"></i><Link to="/appointment" className="link">
+                Appointment
+              </Link></div>
               <div><i class="fad fa-clipboard-list-check" id="listPic"></i>
               <Link to="/patients" className="link">Patient List</Link></div>
               <div>
