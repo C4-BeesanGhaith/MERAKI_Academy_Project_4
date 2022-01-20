@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const AuthContext = React.createContext();
 
 const LoginProvider = (props) => {
+  const navigate = useNavigate();
+
   const [token, setToken] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -12,12 +15,16 @@ const LoginProvider = (props) => {
     localStorage.setItem("token", token);
   };
 
-  const state = { token, saveToken, setIsLoggedIn, isLoggedIn };
+  const logout = () => {
+    setIsLoggedIn(false);
+    localStorage.clear();
+    navigate("/login");
+  };
+
+  const state = { token, saveToken, setIsLoggedIn, isLoggedIn, logout };
 
   return (
-    <AuthContext.Provider value={state}>
-      {props.children}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={state}>{props.children}</AuthContext.Provider>
   );
 };
 
