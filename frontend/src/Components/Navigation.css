@@ -9,6 +9,17 @@
   margin-left: 15ch;
 }
 
+._links {
+  font-size: 1.2em;
+  display: flex;
+  flex-direction: row;
+  gap: 8ch;
+  margin-top: 2.4ch;
+  justify-content: center;
+  font-family: cursive;
+  margin-left: 20ch;
+}
+
 .header {
   display: flex;
   flex-direction: row;
@@ -29,7 +40,7 @@
   flex-direction: row;
   font-size: 2.5em;
   margin-top: 0.3ch;
-  margin-left: 1.4ch;
+  margin-left: 1ch;
 }
 
 .paraTitle {
@@ -52,6 +63,33 @@
   color: black;
 }
 
+.link:hover {
+  color: rgb(74, 74, 212);
+}
+
 #listPic {
   margin-right: 0.5ch;
+}
+
+#_listPic {
+  font-size: 0.9em;
+  margin-right: 0.4ch;
+  margin-bottom: 0.4ch;
+}
+
+#listLogin {
+  margin-right: 0.4ch;
+}
+
+
+.btnLogout {
+  font-family: cursive;
+  border: none;
+  background-color: white;
+  font-size: 1em;
+}
+
+.btnLogout:hover {
+  cursor: pointer;
+  color: rgb(74, 74, 212);
 }

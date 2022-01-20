@@ -82,7 +82,6 @@
   height: 4ch;
 }
 
-
 .SuccessMessageS {
   width: 40%;
   margin-left: 7ch;
@@ -115,12 +114,12 @@
 }
 
 .tableDiag {
-    width: 100%;
+  width: 100%;
 }
 
 .thDiag,
 .tdDiag {
-    width: 20ch;
+  width: 20ch;
   border: solid 0.2ch rgb(156, 209, 218);
   text-align: center;
   font-family: cursive;
@@ -134,13 +133,13 @@
   font-family: cursive;
 }
 
-.tdActions, .thActions {
-    width: 8ch;
+.tdActions,
+.thActions {
+  width: 8ch;
   border: solid 0.2ch rgb(156, 209, 218);
   text-align: center;
   font-family: cursive;
 }
-
 
 .inputDiag {
   width: 90%;
@@ -150,11 +149,12 @@
   border-bottom: 0.2ch solid;
 }
 
-.btnAddD, .btnDeleteD {
-    font-family: cursive;
-    border-radius: 1ch;
-    background-color: white;
-    border: solid 0.1ch rgb(156, 209, 218);
-    width: 8ch;
-    font-size: 1em;
+.btnAddD,
+.btnDeleteD {
+  font-family: cursive;
+  border-radius: 1ch;
+  background-color: white;
+  border: solid 0.1ch rgb(156, 209, 218);
+  width: 8ch;
+  font-size: 1em;
 }
