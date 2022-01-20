@@ -2,3 +2,5 @@
 
 ## Clinics Management System
 
+## Installing
+
