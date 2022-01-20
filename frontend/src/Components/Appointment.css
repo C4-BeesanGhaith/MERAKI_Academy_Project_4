@@ -1,0 +1,60 @@
+.mainDivApp {
+  border: solid 0.5ch rgb(156, 209, 218);
+  border-radius: 3ch;
+  margin-left: 3ch;
+  margin-right: 3ch;
+  margin-top: 5ch;
+  background-color: white;
+  opacity: 0.9;
+}
+
+.headerAppoin {
+  display: flex;
+  flex-direction: row;
+  gap: 2ch;
+  margin-left: 4ch;
+  margin-top: 2ch;
+}
+
+#appPic {
+  font-size: 2em;
+  margin-top: 0.6ch;
+}
+
+.paraAppoin {
+  font-size: 1.5em;
+  font-family: cursive;
+  font-weight: bold;
+}
+
+.tableAppoin {
+  width: 97%;
+  text-align: center;
+  margin-left: 1.8ch;
+  margin-right: 1ch;
+  margin-bottom: 2ch;
+  font-family: cursive;
+}
+
+th,
+td {
+  border: solid 0.2ch rgb(156, 209, 218);
+}
+
+.inputAppoin {
+  width: 90%;
+  font-family: cursive;
+  text-align: center;
+  border: none;
+  border-bottom: 0.2ch solid;
+}
+
+.btnAppoinAdd,
+.btnAppoinDelete {
+  font-family: cursive;
+  border-radius: 1ch;
+  background-color: white;
+  border: solid 0.1ch rgb(156, 209, 218);
+  width: 8ch;
+  font-size: 1em;
+}
