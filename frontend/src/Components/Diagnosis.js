@@ -26,9 +26,7 @@ const Diagnosis = () => {
       .then((response) => {
         setDiagnosiss(response.data.diagnosiss);
       })
-      .catch((err) => {
-        console.log(err.response.data);
-      });
+      .catch((err) => {});
   };
 
   return (
@@ -68,14 +66,26 @@ const Diagnosis = () => {
         <>
           <div className="containerDiv">
             <div className="profileDiv">
-            <p className="titleInfo">Patient Information:</p>
+              <p className="titleInfo">Patient Information:</p>
               {patient.map((element, index) => {
                 return (
                   <div className="dataOfPatient">
-                    <div className="divPara"><p className="title">- Name: </p><p className="Info">{element.fullName}</p></div>
-                    <div className="divPara"><p className="title">- Phone Number: </p><p className="Info">{element.phone}</p></div>
-                    <div className="divPara"><p className="title">- Medical History: </p><p className="Info">{element.medicalHistory}</p></div>
-                    <div className="divPara"><p className="title">- Allergy: </p><p className="Info">{element.allergy}</p></div>
+                    <div className="divPara">
+                      <p className="title">- Name: </p>
+                      <p className="Info">{element.fullName}</p>
+                    </div>
+                    <div className="divPara">
+                      <p className="title">- Phone Number: </p>
+                      <p className="Info">{element.phone}</p>
+                    </div>
+                    <div className="divPara">
+                      <p className="title">- Medical History: </p>
+                      <p className="Info">{element.medicalHistory}</p>
+                    </div>
+                    <div className="divPara">
+                      <p className="title">- Allergy: </p>
+                      <p className="Info">{element.allergy}</p>
+                    </div>
                   </div>
                 );
               })}
@@ -96,19 +106,30 @@ const Diagnosis = () => {
                   {diagnosiss.map((element, index) => {
                     return (
                       <tr>
-                        <td className="tdDate">{element.dateOfVisit.split("").slice(0,10).join("")}</td>
+                        <td className="tdDate">
+                          {element.dateOfVisit.split("").slice(0, 10).join("")}
+                        </td>
                         <td className="tdDiag">{element.diagnosis}</td>
                         <td className="tdDiag">{element.management}</td>
                         <td className="tdDiag">{element.totalAmount}</td>
                         <td className="tdDiag">{element.doctorSign}</td>
-                        <td className="tdActions"><button className="btnDeleteD" onClick={() => {
-                          axios.delete(`http://localhost:5000/patients/${element._id}/diagnosis`).then((response) => {
-                            console.log(response)
-                            getDiagnosisById();
-                          }).catch((err) => {
-
-                          })
-                        }}>Delete</button></td>
+                        <td className="tdActions">
+                          <button
+                            className="btnDeleteD"
+                            onClick={() => {
+                              axios
+                                .delete(
+                                  `http://localhost:5000/patients/${element._id}/diagnosis`
+                                )
+                                .then((response) => {
+                                  getDiagnosisById();
+                                })
+                                .catch((err) => {});
+                            }}
+                          >
+                            Delete
+                          </button>
+                        </td>
                       </tr>
                     );
                   })}
@@ -116,9 +137,11 @@ const Diagnosis = () => {
                 <tfoot>
                   <tr>
                     <td className="tdDate"></td>
-                    <td  className="tdDiag">
-                      <input className="inputDiag"
+                    <td className="tdDiag">
+                      <input
+                        className="inputDiag"
                         type="text"
+                        value={newDiagnosis}
                         placeholder="Diagnosis ..."
                         onChange={(e) => {
                           setNewDiagnosis(e.target.value);
@@ -126,8 +149,10 @@ const Diagnosis = () => {
                       />
                     </td>
                     <td className="tdDiag">
-                      <input  className="inputDiag"
+                      <input
+                        className="inputDiag"
                         type="text"
+                        value={newManagement}
                         placeholder="Management ..."
                         onChange={(e) => {
                           setNewManagement(e.target.value);
@@ -135,8 +160,10 @@ const Diagnosis = () => {
                       />
                     </td>
                     <td className="tdDiag">
-                      <input className="inputDiag"
+                      <input
+                        className="inputDiag"
                         type="text"
+                        value={newAmount}
                         placeholder="Total Amount ..."
                         onChange={(e) => {
                           setNewAmount(e.target.value);
@@ -144,8 +171,10 @@ const Diagnosis = () => {
                       />
                     </td>
                     <td className="tdDiag">
-                      <input className="inputDiag"
+                      <input
+                        className="inputDiag"
                         type="text"
+                        value={newDoctorSign}
                         placeholder="Doctor's Signature ..."
                         onChange={(e) => {
                           setNewDoctorSign(e.target.value);
@@ -153,8 +182,13 @@ const Diagnosis = () => {
                       />
                     </td>
                     <td className="tdActions">
-                      <button className="btnAddD"
+                      <button
+                        className="btnAddD"
                         onClick={() => {
+                          setNewDiagnosis("");
+                          setNewManagement("");
+                          setNewAmount("");
+                          setNewDoctorSign("");
                           axios
                             .post(
                               `http://localhost:5000/patients/${patientId}/diagnosis`,
@@ -171,7 +205,6 @@ const Diagnosis = () => {
                               getDiagnosisById();
                             })
                             .catch((err) => {
-                              console.log(err.response.data);
                             });
                         }}
                       >

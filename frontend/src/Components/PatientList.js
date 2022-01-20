@@ -153,12 +153,10 @@ const PatientList = () => {
                                       }
                                     )
                                     .then((response) => {
-                                      console.log(response);
                                       getAllPatients();
                                       setIsClicked(false);
                                     })
                                     .catch((err) => {
-                                      console.log(err);
                                     });
                                 }}
                               >
@@ -188,7 +186,6 @@ const PatientList = () => {
                                   setPhone(element.phone);
                                   setMedicalHistory(element.medicalHistory);
                                   setAllergy(element.allergy);
-                                  console.log(element._id);
                                 }}
                               >
                                 Edit
@@ -201,11 +198,9 @@ const PatientList = () => {
                                       `http://localhost:5000/patients/${element._id}`
                                     )
                                     .then((response) => {
-                                      console.log(response);
                                       getAllPatients();
                                     })
                                     .catch((err) => {
-                                      console.log(err);
                                     });
                                 }}
                               >

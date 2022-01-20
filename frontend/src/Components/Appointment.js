@@ -149,7 +149,6 @@ const Appointment = () => {
                             })
                             .then((response) => {
                               getAllAppointment();
-                              console.log(patient);
                             })
                             .catch((err) => {});
                         }}
